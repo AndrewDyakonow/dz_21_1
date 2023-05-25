@@ -2,13 +2,16 @@ from django.db import models
 
 
 class Product(models.Model):
-    name = models.CharField(max_length=25)
-    description = models.CharField(max_length=25)
+    name = models.CharField(max_length=25, verbose_name='Название')
+    description = models.CharField(max_length=25, verbose_name='Описание')
     image = models.ImageField(upload_to='image/')
-    category = models.CharField(max_length=25)
-    price = models.IntegerField
-    date_create = models.DateTimeField
+    category = models.CharField(max_length=25, verbose_name='Категория')
+    price = models.IntegerField(default=0, verbose_name='Цена')
+    date_create = models.DateTimeField(default='2020-01-01 00:00', verbose_name='Дата создания')
     date_of_change = models.DateTimeField
+
+    def __str__(self):
+        return f'{self.name}, {self.description}, {self.category}, {self.price}'
 
     class Meta:
         verbose_name = "Продукт"
@@ -17,9 +20,11 @@ class Product(models.Model):
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=25)
-    description = models.CharField(max_length=25)
-    created_at = models.CharField(max_length=15, default=None)
+    name = models.CharField(max_length=25, verbose_name='Название')
+    description = models.CharField(max_length=25, verbose_name='Описание')
+
+    def __str__(self):
+        return self.name, self.description
 
     class Meta:
         verbose_name = "Категория"

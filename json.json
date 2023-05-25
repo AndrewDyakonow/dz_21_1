@@ -1,0 +1,38 @@
+[
+  {
+    "model": "main.product",
+    "pk": 2,
+    "fields": {
+      "name": "Potato",
+      "description": "Картошка",
+      "image": "image/licensed-image.jpeg",
+      "category": "Plants",
+      "price": 25,
+      "date_create": "2020-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "main.product",
+    "pk": 3,
+    "fields": {
+      "name": "Tomato",
+      "description": "Помидор",
+      "image": "image/pomidor-400y.png",
+      "category": "Plants",
+      "price": 50,
+      "date_create": "2020-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "main.product",
+    "pk": 4,
+    "fields": {
+      "name": "Orange",
+      "description": "Апельсин",
+      "image": "image/Без_названия.jpeg",
+      "category": "Fruits",
+      "price": 75,
+      "date_create": "2020-01-01T00:00:00Z"
+    }
+  }
+]
