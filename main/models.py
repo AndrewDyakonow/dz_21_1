@@ -19,6 +19,7 @@ class Product(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=25)
     description = models.CharField(max_length=25)
+    created_at = models.CharField(max_length=15, default=None)
 
     class Meta:
         verbose_name = "Категория"
