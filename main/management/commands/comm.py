@@ -1,5 +1,5 @@
 from django.core.management import BaseCommand
-
+from datetime import datetime
 from main.models import Product
 
 
@@ -13,6 +13,7 @@ class Command(BaseCommand):
                 'image': 'screenshotes/img.png',
                 'category': 'Fruits',
                 'price': '14',
+                'date_create': datetime.now()
             },
             {
                 'name': 'Potato',
@@ -20,6 +21,7 @@ class Command(BaseCommand):
                 'image': 'screenshotes/img.png',
                 'category': 'Plants',
                 'price': '53',
+                'date_create': datetime.now()
             },
             {
                 'name': 'Tomato',
@@ -27,6 +29,7 @@ class Command(BaseCommand):
                 'image': 'screenshotes/img.png',
                 'category': 'Plants',
                 'price': '43',
+                'date_create': datetime.now()
             }
         ]
 

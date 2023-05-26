@@ -1,6 +1,7 @@
-def main():
-    pass
+from django.urls import path
 
+from main.views import index
 
-if __name__ == '__main__':
-    main()
+urlpatterns = [
+    path('', index),
+]

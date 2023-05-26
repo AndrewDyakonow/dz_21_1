@@ -1,4 +1,9 @@
+from django.utils.timezone import now
 from django.db import models
+
+
+def get_date():
+    return now()
 
 
 class Product(models.Model):
@@ -7,7 +12,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='image/')
     category = models.CharField(max_length=25, verbose_name='Категория')
     price = models.IntegerField(default=0, verbose_name='Цена')
-    date_create = models.DateTimeField(default='2020-01-01 00:00', verbose_name='Дата создания')
+    date_create = models.DateTimeField(verbose_name='Дата создания')
     date_of_change = models.DateTimeField
 
     def __str__(self):
@@ -30,3 +35,6 @@ class Category(models.Model):
         verbose_name = "Категория"
         verbose_name_plural = "Категории"
         ordering = ('name',)
+
+
+
