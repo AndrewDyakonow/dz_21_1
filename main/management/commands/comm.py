@@ -10,7 +10,7 @@ class Command(BaseCommand):
             {
                 'name': 'Orange',
                 'description': 'Апельсин',
-                'image': 'screenshotes/img.png',
+                'image': 'media/image/oranges.jpeg',
                 'category': 'Fruits',
                 'price': '14',
                 'date_create': datetime.now()
@@ -18,7 +18,7 @@ class Command(BaseCommand):
             {
                 'name': 'Potato',
                 'description': 'Картофель',
-                'image': 'screenshotes/img.png',
+                'image': 'media/image/potatoes.jpeg',
                 'category': 'Plants',
                 'price': '53',
                 'date_create': datetime.now()
@@ -26,7 +26,7 @@ class Command(BaseCommand):
             {
                 'name': 'Tomato',
                 'description': 'Томат',
-                'image': 'screenshotes/img.png',
+                'image': 'media/image/pomidor.png',
                 'category': 'Plants',
                 'price': '43',
                 'date_create': datetime.now()
