@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="col-md-8 blog-main">
+    <div class="card flex-md-row mb-4 box-shadow h-md-250">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            Вы уверены, что хотите удалить запись "{{ object.header }}"?
+            <input type="submit" class="btn btn-success" value="Уверен">
+        </form>
+    </div>
+    <div class="card-footer">
+        <a href="{% url 'main:blogs' %}" class="btn btn-primary"> Назад </a>
+    </div>
+
+
+</div><!-- /.blog-main -->
+
+{% endblock %}

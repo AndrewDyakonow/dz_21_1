@@ -1,9 +1,10 @@
 from django.utils.timezone import now
 from django.db import models
 
-
-def get_date():
-    return now()
+DEFAULT = {
+    'blank': True,
+    'null': True,
+}
 
 
 class Product(models.Model):
@@ -37,4 +38,23 @@ class Category(models.Model):
         ordering = ('name',)
 
 
+class Blogs(models.Model):
+    """Модель `Блог`"""
+    header = models.CharField(max_length=50, verbose_name='заголовок')
+    slug = models.CharField(max_length=25, verbose_name='slug')
+    content = models.TextField(max_length=250, verbose_name='содержимое')
+    image = models.ImageField(**DEFAULT, verbose_name='превью')
+    create_data = models.DateField(default=now, verbose_name='дата создания')
+    sign = models.CharField(max_length=25, verbose_name='признак публикации')
+    views = models.IntegerField(default=0, verbose_name='количество просмотров')
+
+    is_active = models.BooleanField(default=True, verbose_name='Активный')
+
+    def __str__(self):
+        return f'{self.header}, {self.content}, {self.image}, {self.create_data}'
+
+    class Meta:
+        verbose_name = "Запись"
+        verbose_name_plural = "Записи"
+        ordering = ('-pk',)
 

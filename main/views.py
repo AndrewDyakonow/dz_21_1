@@ -1,27 +1,39 @@
+from django.views import generic
+
 from django.shortcuts import render
+from django.urls import reverse_lazy
 
-from main.models import Product
-
-
-def index(request):
-    products_for_all = Product.objects.all()
-    context = {
-        'object_list': products_for_all
-    }
-    return render(request, 'main/index.html', context)
+from main.models import Product, Blogs
 
 
-def pages(request):
-    products_for_all = Product.objects.all()
-    context = {
-        'object_list': products_for_all
-    }
-    return render(request, 'main/pages.html', context)
+class IndexListView(generic.ListView):
+    model = Product
 
 
 def contacts(request):
-    products_for_all = Product.objects.all()
-    context = {
-        'object_list': products_for_all
-    }
-    return render(request, 'main/contacts.html', context)
+    return render(request, 'main/contacts.html')
+
+
+class BlogListView(generic.ListView):
+    model = Blogs
+
+
+class BlogDetailView(generic.DetailView):
+    model = Blogs
+
+
+class BlogCreateView(generic.CreateView):
+    model = Blogs
+    fields = ('header', 'slug', 'content', 'sign', 'image')
+    success_url = reverse_lazy('main:blogs')
+
+
+class BlogUpdateView(generic.UpdateView):
+    model = Blogs
+    fields = ('header', 'slug', 'content', 'sign', 'image')
+    success_url = reverse_lazy('main:blogs')
+
+
+class BlogDeleteView(generic.DeleteView):
+    model = Blogs
+    success_url = reverse_lazy('main:blogs')
