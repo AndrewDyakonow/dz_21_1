@@ -17,4 +17,5 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Blogs)
 class BlogsAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'header', 'content', 'image', 'create_data', 'views')
+    list_display = ('pk', 'header', 'slug', 'content', 'image', 'create_data', 'sign', 'views', 'is_active')
+    prepopulated_fields = {'slug': ('header',)}

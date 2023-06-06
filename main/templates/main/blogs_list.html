@@ -21,9 +21,10 @@
     <main role="main" class="container">
         <div class="row">
             <diov class="col-12">
-                <a href="{% url 'main:blog_create_post' %}" class="btn btn-primary m-3 ">Написать пост</a>
+                <a href="{% url 'main:blog_create' page_obj %}" class="btn btn-primary m-3 ">Написать пост</a>
             </diov>
             {% for object in object_list %}
+                {% if object.is_active and object.sign %}
                 <div class="col-md-8 blog-main">
                     <div class="card flex-md-row mb-4 box-shadow h-md-250">
                         <div class="card-body d-flex flex-column align-items-start">
@@ -33,19 +34,23 @@
                             </h3>
                             <div class="mb-1 text-muted">{{ object.create_data }}</div>
                             <p class="card-text mb-auto">{{ object.content }}</p>
+
                             <nav class="blog-pagination">
                                 <a class="btn btn-outline-primary"
-                                   href={% url 'main:blog_item' object.pk %}>Смотреть</a>
+                                   href={{ object.slug }}>Смотреть</a>
+                                <a> Просмотров: {{ object.views }}</a>
                             </nav>
                         </div>
                         {% if object.image %}
                             <img class="card-img-right flex-auto d-none d-md-block" src="{{ object.image.url }}"
                                  alt="Card image cap">
                         {% endif %}
+
                     </div>
 
 
                 </div><!-- /.blog-main -->
+                {% endif %}
             {% endfor %}
 
         </div><!-- /.row -->

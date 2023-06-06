@@ -11,9 +11,10 @@
                 </h3>
                 <div class="mb-1 text-muted">{{ object.create_data }}</div>
                 <p class="card-text mb-auto">{{ object.content }}</p>
+                <a> Просмотров: {{ object.views }}</a>
                 <nav class="blog-pagination">
-                    <a class="btn btn-warning" href={% url 'main:blog_update_post' object.pk %}>Изменить</a>
-                    <a class="btn btn-danger" href={% url 'main:blog_delete_post' object.pk %}>Удалить</a>
+                    <a class="btn btn-warning" href={% url 'main:blog_update_post' object.slug %}>Изменить</a>
+                    <a class="btn btn-danger" href={% url 'main:blog_delete_post' object.slug %}>Удалить</a>
                 </nav>
             </div>
 
