@@ -1,4 +1,5 @@
 from django.views import generic
+from main.productForm import ProductForm
 
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
@@ -8,8 +9,13 @@ from django.core.mail import send_mail
 from main.models import Product, Blogs
 
 
-class IndexListView(generic.ListView):
+class ProductListView(generic.ListView):
     model = Product
+
+
+class ProductCreateView(generic.CreateView):
+    model = Product
+    form_class = ProductForm
 
 
 def contacts(request):
